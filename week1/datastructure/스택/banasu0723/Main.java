@@ -28,23 +28,24 @@ public class Main {
                     }else{
                         sb.append(stack.pop()).append("\n");
                     }
+                    break;
                 case "size":
                     sb.append(stack.size()).append("\n");
+                    break;
                 case "empty":
                     if(stack.empty()){
                         sb.append(1).append("\n");
                     }else{
                         sb.append(0).append("\n");
                     }
+                    break;
                 default:
                     if(stack.isEmpty()){
                         sb.append(-1).append("\n");
                     }else{
                         sb.append(stack.peek()).append("\n");
                     }
-
-
-
+                    break;
             }
         }
         System.out.println(sb);
