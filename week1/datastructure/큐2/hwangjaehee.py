@@ -1,9 +1,12 @@
 from collections import deque
+from sys import stdin
+
 queue=deque()
-N=int(input())
+N=int(stdin.readline())
 
 for i in range(0,N):
-    command = input().split()
+    command = stdin.readline().strip().split()
+
     if command[0]=='push':
         queue.append(command[1])
 
@@ -35,4 +38,4 @@ for i in range(0,N):
         if(size==0):
             print(-1)
         else:
-            print(queue[size-1])            
+            print(queue[size-1])
