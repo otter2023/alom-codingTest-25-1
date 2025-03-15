@@ -6,7 +6,6 @@ class Stack:
     
     def push(self,element):
         self.stack.append(element)
-        return(element)
     
     def pop(self):
         if self.stack:
@@ -34,24 +33,23 @@ def stack_command(s,command):
 
     if(cmd=="push"):
         element=int(commands[1])
-        result=s.push(element)
-        return result
+        s.push(element)
     
     elif(cmd=="pop"):
         result=s.pop()
-        return result
+        print(result)
     
     elif(cmd=="size"):
         result=s.size()
-        return result
+        print(result)
 
     elif(cmd=="empty"):
         result=s.empty()
-        return result
+        print(result)
     
     elif(cmd=="top"):
         result=s.top()
-        return result
+        print(result)
 
 
 ##main
@@ -61,5 +59,5 @@ N = int(input())
 
 for i in range(N):
     command=input()
-    print(stack_command(s,command))
+    stack_command(s,command)
 

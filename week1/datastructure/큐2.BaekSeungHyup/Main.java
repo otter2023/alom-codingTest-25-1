@@ -1,6 +1,4 @@
 ## 큐 2 
-
-
 class Queue:
     def __init__(self):
         self.queue=[]
@@ -42,8 +40,7 @@ def commands(q,command):
 
     if(cmd=="push"):
         element=int(command_list[1])
-        result=q.push(element)
-        print(result)
+        q.push(element)
     
     elif(cmd=="pop"):
         result=q.pop()
