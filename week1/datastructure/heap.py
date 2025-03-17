@@ -1,11 +1,19 @@
-x=int(input())
-arr=[]
+import sys
+import heapq
 
-arr.append(x)
+N=int(sys.stdin.readline().strip())
 
-for i in x:
-    if max<x[i]:
-        max=x[i]
+heap=[]
 
-print(max)
-arr.pop(max)
+for i in range(N):
+    x = int(sys.stdin.readline().strip())
+
+    if x > 0:
+        heapq.heappush(heap,-x)
+
+    elif x == 0:
+        if heap:
+            print(-heapq.heappop(heap))
+        else:
+            print(0)
+        
