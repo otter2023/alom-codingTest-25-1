@@ -4,33 +4,32 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringBuilder sb = new StringBuilder();
+        Deque<Integer> queue = new ArrayDeque<>();
 
         int num = Integer.parseInt(br.readLine());
-        Queue<Integer> queue = new LinkedList<>();
 
         for (int i = 0; i < num; i++) {
             String command = br.readLine();
 
             if (command.startsWith("push")) {
-                queue.add(Integer.parseInt(command.substring(5))); /
             } else if (command.equals("pop")) {
-                sb.append(queue.isEmpty() ? "-1\n" : queue.poll() + "\n");
+                if (queue.isEmpty()) sb.append("-1\n");
+                else sb.append(queue.pollFirst()).append("\n");
             } else if (command.equals("size")) {
-                sb.append(queue.size() + "\n");
+                sb.append(queue.size()).append("\n");
             } else if (command.equals("empty")) {
                 sb.append(queue.isEmpty() ? "1\n" : "0\n");
             } else if (command.equals("front")) {
-                sb.append(queue.isEmpty() ? "-1\n" : queue.peek() + "\n");
+                if (queue.isEmpty()) sb.append("-1\n");
+                else sb.append(queue.peekFirst()).append("\n");
             } else if (command.equals("back")) {
-                sb.append(queue.isEmpty() ? "-1\n" : ((LinkedList<Integer>) queue).getLast() + "\n");
+                if (queue.isEmpty()) sb.append("-1\n");
+                else sb.append(queue.peekLast()).append("\n");
             }
         }
 
-        bw.write(sb.toString()); // 한 번에 출력
-        bw.flush();
+        System.out.print(sb);
         br.close();
-        bw.close();
     }
 }
