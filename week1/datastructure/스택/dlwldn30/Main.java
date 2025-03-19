@@ -1,4 +1,4 @@
-package datastructure.stack.dlwldn30;
+package datastructure.스택.dlwldn30;
 
 import java.io.BufferedReader;
 import java.io.IOException;

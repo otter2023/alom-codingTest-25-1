@@ -1,5 +1,10 @@
-import java.io.*;
-import java.util.*;
+package datastructure.큐2.dlwldn30;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -13,6 +18,7 @@ public class Main {
             String command = br.readLine();
 
             if (command.startsWith("push")) {
+                int value = Integer.parseInt(command.split(" ")[1]);
             } else if (command.equals("pop")) {
                 if (queue.isEmpty()) sb.append("-1\n");
                 else sb.append(queue.pollFirst()).append("\n");
