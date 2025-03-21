@@ -1,0 +1,10 @@
+# IDE 설정
+.idea/
+*.iml
+
+# 빌드 결과물
+out/
+*.class
+
+# 기타
+.DS_Store
