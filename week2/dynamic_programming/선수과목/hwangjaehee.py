@@ -5,6 +5,10 @@
 # #                [2]
 # #                [4]
 def calculate_prerequisites(course_num):
+    # 이미 계산된 경우 다시 계산하지 않음 (시간초과 방지_메모이제이션)
+    if semester[course_num] != 0:
+        return semester[course_num]
+
     # 선수과목이 없는 경우 1학기에 이수 가능
     if course_num not in prerequisite:
         semester[course_num] = 1
