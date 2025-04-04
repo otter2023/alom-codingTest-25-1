@@ -33,7 +33,6 @@ public class Main {
 
         sb.append(calculate(n, k));
         System.out.println(sb);
-
     }
 
     private static int calculate(int n, int k) {
