@@ -23,4 +23,4 @@ for i in range(1,n+1):
     elif num==max_hacking_computers:
         answer.append(i)
 for i in answer:
-    print(i, end=' ')
+    print(i, end=' '
