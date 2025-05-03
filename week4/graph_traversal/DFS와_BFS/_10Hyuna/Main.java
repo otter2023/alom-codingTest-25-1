@@ -1,4 +1,4 @@
-package week4.graph_traversal.DFS와BFS._10Hyuna;
+package week4.graph_traversal.DFS와_BFS._10Hyuna;
 
 import java.io.BufferedReader;
 import java.io.IOException;
