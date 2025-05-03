@@ -14,8 +14,6 @@ public class Main {
 
     static int n, m, v;
 
-    static Queue<Integer> q = new LinkedList<>();
-
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
@@ -50,9 +48,10 @@ public class Main {
 
     public static void dfs(int start) {
         check[start] = true;
-        sb.append(start + " ");
+        sb.append(start).append(" ");
 
-        for(int i = 0; i <= n; i++) {
+        // 정점 번호가 작은 것부터 방문
+        for(int i = 1; i <= n; i++) {
             if(arr[start][i] == 1 && !check[i]) {
                 dfs(i);
             }
@@ -60,6 +59,8 @@ public class Main {
     }
 
     public static void bfs(int start) {
+        Queue<Integer> q = new LinkedList<>();
+
         q.add(start);
         check[start] = true;
 

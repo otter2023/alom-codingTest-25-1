@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 public class Main {
+    static StringBuilder sb = new StringBuilder();
+
     static int n;
     static int[] parent;
     static boolean[] isVisit;
@@ -40,8 +42,10 @@ public class Main {
         dfs(1);
 
         for (int i = 2; i < parent.length; i++) {
-            System.out.println(parent[i]);
+            sb.append(parent[i]).append("\n");
         }
+
+        System.out.println(sb);
 
     }
 
