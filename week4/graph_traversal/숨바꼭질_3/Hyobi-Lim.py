@@ -18,4 +18,5 @@ while(k not in node_time):
         node_time[now+1]=node_time[now]+1
         if now+1 not in queue:
             queue.append(now+1)
+
 print(node_time[k])
