@@ -28,19 +28,25 @@ package graph_traversal.숫자고르기.Uechann;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.Set;
 import java.util.TreeSet;
 
+//30M
 public class Main {
     static int N;
     static int[][] nums;
+    static boolean[] visited;
     static Set<Integer> s1 = new TreeSet<>();
     static Set<Integer> s2 = new TreeSet<>();
     static Set<Integer> result = new TreeSet<>();
 
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb = new StringBuilder();
         N = Integer.parseInt(br.readLine());
+        visited = new boolean[N + 1];
+        Arrays.fill(visited, false);
 
         nums = new int[3][N + 1];
         for (int i = 1; i <= N; i++) {
@@ -48,19 +54,36 @@ public class Main {
             nums[2][i] = Integer.parseInt(br.readLine());
         }
 
+        //숫자하나씩 노드로 설정하고 밑에 행에 있는 숫자를 인접 노드로 설정한다.
+        //이때 방향 간선으로 설정
+        //1 -> 3
+        //3 -> 1 이렇게 순환이 만들어지면 결국 두 집합이 같아진다.
+        //이때 만든어진 순환 노드들을 모두 다 더해야 최대 답이 된다.
 
+        for (int i = 1; i <= N; i++) {
+            solve(i);
+            //두 집합이 일치하면 결과 집합에 추가
+            if (s1.equals(s2)) result.addAll(s2);
 
+            s1.clear();
+            s2.clear();
+            Arrays.fill(visited, false);
+        }
+        sb.append(result.size()).append("\n");
+        result.forEach(a -> sb.append(a).append("\n"));
+
+        System.out.println(sb);
     }
 
     public static void solve(int start) {
+        if (visited[start] == true) return;
 
-        s1.add(nums[1][start]);
+        //s1 집합에 추가
+        s1.add(start);
+        visited[start] = true;
+        //s2 집합에 추가
         s2.add(nums[2][start]);
 
-        for (int i = 1; i <= N; i++) {
-            if (i == start) continue;
-
-
-        }
+        if (!visited[nums[2][start]]) solve(nums[2][start]);
     }
 }
