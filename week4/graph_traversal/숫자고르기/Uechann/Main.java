@@ -76,7 +76,7 @@ public class Main {
     }
 
     public static void solve(int start) {
-        if (visited[start] == true) return;
+        if (visited[start]) return;
 
         //s1 집합에 추가
         s1.add(start);
